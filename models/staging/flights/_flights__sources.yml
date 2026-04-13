@@ -1,0 +1,54 @@
+sources:
+  - name: demo_src
+    description: "Source data for the flights project"
+    database: dwh_flights
+    schema: demo_src
+    tables:
+      - name: aircrafts
+        description: "Aircraft models"
+        columns:
+          - name: aircraft_code
+            description: "Unique code for each aircraft model"
+            tests:
+              - unique
+              - not_null
+          - name: model
+            description: "Model name of the aircraft"
+          - name: range
+            description: "Maximum range of the aircraft in miles"
+      - name: aircrafts_data
+      - name: airports
+        description: "Airport information"
+        columns:
+          - name: airport_code
+            description: "Unique code for each airport"
+          - name: airport_name
+            description: "Name of the airport"
+          - name: city
+            description: "City where the airport is located"
+          - name: coordinates
+            description: "Geographic coordinates of the airport"
+          - name: timezone
+            description: "Timezone of the airport"
+      - name: airports_data
+      - name: boarding_passes
+      - name: bookings
+        columns:
+          - name: book_ref
+          - name: book_date
+          - name: total_amount
+        loaded_at_field: book_date::timestamp
+        freshness:
+          warn_after:
+            count: 5
+            period: year
+          error_after:
+            count: 10
+            period: year
+          filter: current_timestamp::date - book_date::date < 300000
+      - name: flights
+      - name: flights_v
+      - name: routes
+      - name: seats
+      - name: ticket_flights
+      - name: tickets
