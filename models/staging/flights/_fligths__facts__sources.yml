@@ -1,0 +1,63 @@
+sources:
+  - name: demo_src
+    description: "Source data for the flights project"
+    database: dwh_flights
+    schema: demo_src
+    tables:
+      - name: boarding_passes
+        description: "Information about boarding passes"
+        columns:
+          - name: ticket_no
+            description: "Unique ticket number"
+          - name: flight_id
+            description: "Identifier for the flight"
+          - name: seat_no
+            description: "Seat number assigned to the passenger"
+      - name: flights
+        description: "Flight details"
+        columns:
+          - name: flight_id
+            description: "Unique identifier for each flight"
+          - name: flight_no
+            description: "Flight number"
+          - name: scheduled_departure
+            description: "Scheduled departure time"
+          - name: scheduled_arrival
+            description: "Scheduled arrival time"
+          - name: departure_airport
+            description: "Airport code for departure"
+          - name: arrival_airport
+            description: "Airport code for arrival"
+          - name: status
+            description: "Current status of the flight (e.g., scheduled, delayed, cancelled)"
+          - name: aircraft_code
+            description: "Code for the aircraft used in the flight"
+          - name: actual_departure
+            description: "Actual departure time"
+          - name: actual_arrival
+            description: "Actual arrival time"
+      - name: ticket_flights
+        description: "Mapping between tickets and flights"
+        columns:
+          - name: ticket_no
+            description: "Unique ticket number"
+          - name: flight_id
+            description: "Identifier for the flight"
+          - name: fare_conditions
+            description: "Fare conditions for the ticket (e.g., economy, business, first class)"
+          - name: amount
+            description: "Amount paid for the ticket"
+
+      - name: tickets
+        description: "Ticket information"
+        columns:
+          - name: ticket_no
+            description: "Unique ticket number"
+          - name: book_ref
+            description: "Booking reference number"
+          - name: passenger_id
+            description: "Identifier for the passenger"
+          - name: passenger_name
+            description: "Name of the passenger"
+          - name: contact_data
+            description: "Contact information for the passenger (e.g., email, phone number)"
