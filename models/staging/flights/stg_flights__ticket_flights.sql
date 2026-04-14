@@ -1,15 +1,5 @@
-{{
-    config(
-        materialized='table'
-    )
-}}
+{{ config(materialized="table") }}
 
-select
-  ticket_no,
-  flight_id,
-  fare_conditions,
-  amount
+select ticket_no, flight_id, fare_conditions, amount
 
-from 
-  {{ source('demo_src', 'ticket_flights') }}
-    
+from {{ source("demo_src", "ticket_flights") }}
