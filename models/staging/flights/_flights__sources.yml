@@ -31,24 +31,11 @@ sources:
           - name: timezone
             description: "Timezone of the airport"
       - name: airports_data
-      - name: boarding_passes
       - name: bookings
         columns:
           - name: book_ref
           - name: book_date
           - name: total_amount
-        loaded_at_field: book_date::timestamp
-        freshness:
-          warn_after:
-            count: 5
-            period: year
-          error_after:
-            count: 10
-            period: year
-          filter: current_timestamp::date - book_date::date < 300000
-      - name: flights
       - name: flights_v
       - name: routes
       - name: seats
-      - name: ticket_flights
-      - name: tickets

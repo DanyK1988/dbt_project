@@ -11,6 +11,8 @@ sources:
             description: "Unique ticket number"
           - name: flight_id
             description: "Identifier for the flight"
+          - name: boarding_no
+            description: "Boarding number for the passenger"
           - name: seat_no
             description: "Seat number assigned to the passenger"
       - name: flights
