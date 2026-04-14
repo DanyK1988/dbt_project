@@ -1,0 +1,23 @@
+models:
+  - name: fct_bookings
+    description: "Fact table for flight bookings"
+    docs:
+      show: true
+      node_color: red
+    config:
+      contract: { enforced: true }
+    meta:
+      owner: "Dany"
+      status: "in development"
+
+    columns:
+      - name: book_ref
+        data_type: varchar(8)
+        constraints:
+          - type: not_null
+      - name: book_date
+        data_type: timestamp with time zone
+      - name: total_amount
+        data_type: numeric(10, 2)
+      - name: loaded_at
+        data_type: timestamp with time zone
