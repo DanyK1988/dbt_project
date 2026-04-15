@@ -26,6 +26,7 @@ models:
       - name: amount
         data_type: numeric(10, 2)
         constraints:
-          - type: not_null
+          - type: check
+            expression: "amount > 0"
       - name: loaded_at
         data_type: timestamp with time zone
