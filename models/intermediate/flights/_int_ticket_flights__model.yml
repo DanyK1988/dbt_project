@@ -1,14 +1,15 @@
 models:
   - name: fct_ticket_flights
     description: "Fact table for ticket flights"
-    docs:
-      show: true
-      node_color: green
     config:
-      contract: { enforced: true }
-    meta:
-      owner: "Dany"
-      status: "in development"
+      contract:
+        enforced: true
+      docs:
+        show: true
+        node_color: green
+      meta:
+        owner: "Dany"
+        status: "in development"
 
     columns:
       - name: ticket_no
